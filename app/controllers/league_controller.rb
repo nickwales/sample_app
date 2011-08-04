@@ -1,4 +1,4 @@
-class LeaguesController < ApplicationController
+class LeagueController < ApplicationController
   
   def show
     @title = "Leagues"
