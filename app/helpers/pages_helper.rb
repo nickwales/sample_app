@@ -5,8 +5,7 @@ module PagesHelper
     divs = Division.where( :season_id => season).count
   end
     
-  def division_ids 
-    season = 1
+  def division_ids(season) 
     division_ids = Division.where( :season_id => season)
     divs = Array.new
     division_ids.each do |p|

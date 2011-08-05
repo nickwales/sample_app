@@ -22,7 +22,7 @@ class PagesController < ApplicationController
     @divs = Division.where( :season_id => @season).count
     @division_ids = Division.where( :season_id => @season)
     @players = Playerdiv.where(:division_id => 1)
-    
+
     @player = Array.new
     @players.each do |p|
       @player << p.user_id
