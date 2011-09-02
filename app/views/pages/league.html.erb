@@ -1,18 +1,21 @@
 
 <%	#Get the divisions for the season, run them through pagination, and loop through them.
 	divisions = division_ids(1)
+	
+# Sort them, paginate them. 
 	sorted_and_paginated_divisions = divisions.paginate(:page => params[:page], :per_page => 2)
-	 sorted_and_paginated_divisions.each do |l|
-		l = show_league(l,1) 		
-%>
+# Loop through the leagues and tabulate them
+	 sorted_and_paginated_divisions.each_with_index do |l,index|
+		l = show_league(l,1) %>
 
 <table width=200>
-		<h3>Division <%= divisions[0][:id] %></h3>
+		<h3>Division <%= sorted_and_paginated_divisions[index][:number] %></h3>
 		<tr>
 			<td>Name</td>
 			<td>Played</td>
 			<td>Won</td>
 			<td>Lost</td>
+			<td>Drew</td>
 			<td>Points</td>
 		</tr>
 
@@ -22,6 +25,7 @@
 				<td><%= p[:Played] %></td>
 				<td><%= p[:Won] %></td>
 				<td><%= p[:Lost] %></td>
+				<td><%= p[:Drew] %></td>
 				<td><%= p[:Points] %></td>
 			</tr>
 		<% end %>
@@ -29,4 +33,11 @@
 
 
 <% 	end  %>
+
+	
+	<%= @player_matches.inspect %>
+
+	 
+
+	
 <%= will_paginate sorted_and_paginated_divisions %>

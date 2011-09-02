@@ -28,6 +28,7 @@ class PagesController < ApplicationController
       @player << p.user_id
     end
     
+
 #    l = Array.new
 #    for i in @players
 #      games = Result.joins(:match).where(:matches => {:playerdiv_id => @league}).where(:results => {:user_id => i})

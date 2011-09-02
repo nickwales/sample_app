@@ -1,0 +1,43 @@
+<%= form_for @match do |f| %>
+  <% if @match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</h2>
+
+      <ul>
+      <% @match.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+<!-- Get the division_id for current loggin in user -->
+  	<% bleht = get_playerdiv %>
+    <%= f.hidden_field :playerdiv_id, :value => bleht.division_id %><br />
+	<% playerdiv_players = playerdiv_users(bleht.division_id) %>
+
+	
+<!-- The controller makes this happen twice -->
+	<%= f.fields_for :results do |result_form| %>
+	<!-- Get the user -->
+		<%= result_form.label :Player %><br />
+    	<%= # result_form.text_field :user_id 
+		result_form.select :user_id, options_for_select(playerdiv_players) %><br />
+	<!-- Get the score -->
+		<%= result_form.label :score %><br />
+		<%= result_form.select :score, options_for_select([["1", "1"], ["2", "2"], ["3", "3"]]) %><br />
+
+    
+
+		<%= result_form.hidden_field :active, :value => 1 %>
+
+
+	
+	<% end %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

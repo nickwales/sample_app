@@ -16,3 +16,44 @@ module ApplicationHelper
  end 
 
 end
+
+def match_result(match,player)
+  scores = Result.where(:match_id => match)
+     score_1 = scores.first
+     score_2 = scores.last
+     if score_1[:user_id] == player
+       if score_1[:score] > score_2[:score]
+         result = "won"
+       elsif score_1[:score] == score_2[:score]
+         result = "drew"       
+       elsif score_1[:score] < score_2[:score]
+         result = "lost"
+         end
+      elsif score_2[:user_id] == player
+        if score_2[:score] > score_1[:score]
+          result = "won"
+        elsif score_2[:score] == score_1[:score]
+          result = "drew"       
+        elsif score_2[:score] < score_1[:score]
+          result = "lost"
+        end
+      return result
+      end
+    end
+
+# Get players from current playerdiv
+def playerdiv_users(playerdiv)
+      users = Hash.new
+      results = User.joins(:playerdivs).where(:playerdivs => {:division_id => playerdiv})
+      results.each do |r|
+        users[r.name] = r.id
+  #      users << { "r.name", "r.id" }
+    end
+    return users
+  end
+    
+# Get current playerdiv by id
+def get_playerdiv()
+      playerdiv = Playerdiv.where(:user_id => current_user).last
+      return playerdiv
+    end

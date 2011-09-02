@@ -1,5 +1,9 @@
 SampleApp::Application.routes.draw do
 
+  resources :results
+
+  resources :matches
+
   get "sessions/new"
 
   resources :users

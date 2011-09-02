@@ -34,7 +34,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @results = @user.results.paginate(:page => params[:page])
     @title = @user.name
+        
+    @current_playerdiv = Playerdiv.where(:user_id => params[:id]).last 
+		if !@current_playerdiv.division_id.nil? 
+			@division_number = Division.joins(:playerdivs).where(:playerdivs => {:division_id => @current_playerdiv }).last 
+    end
+
+   
+
   end
+  
+
 
   def new
     @title = "Sign up"
@@ -56,6 +66,9 @@ class UsersController < ApplicationController
     redirect_to(root_path) unless current_user?(@user)
   end
   
+  def get_last_playerdiv
+    @current_playerdiv = Playerdiv.where(:user_id => params[:id]).last
+  end
 end
 
 

@@ -4,20 +4,34 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
-
+		<strong>Recent Results</strong>
 		<% unless @user.results.empty? %>
 		        <table class="results" summary="User results">
 		          <%= render @results %>
 		        </table>
 		        <%= will_paginate @results %>
-		      <% end %>
+		      <% end  %>
+
+
       </h1>
     </td>
     <td class="sidebar round">
 		<strong>Name</strong> <%= @user.name %><br />
 		<strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
-		<strong>Wins</strong> 3
+		<strong>Wins</strong> 3<br />
+		<strong>Current Division</strong> 	<%= @division_number.number %><br />
+		<strong>Add a result: </strong><br>
+		<% form_for @user do |f| %>
+		<%= @user.name %> <%= select_tag 'user_result', options_for_select([["1", "1"], ["2", "2"], ["3", "3"]]) %> vs </strong><br>
 
+<!-- Bust out the opponents -->
+
+	<% opponents = playerdiv_users(@current_playerdiv.id,@user.id) %>
+ <%= select_tag 'person', options_from_collection_for_select(opponents,'id','name') %><%=  select_tag 'opponent_result', options_for_select([["1", "1"], ["2", "2"], ["3", "3"]]) %>
+
+<% end %>
+
+		 
     </td>
   </tr>
 </table>
