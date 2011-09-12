@@ -1,37 +1,80 @@
-<table class="profile" summary="Profile information">
-  <tr>
-    <td class="main">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-		<strong>Recent Results</strong>
-		<% unless @user.results.empty? %>
+<table>
+	<tr>
+		<td><%= gravatar_for @user %></td>
+		<td><%= @user.name %> <% if params[:id] == current_user.id.to_s %><%= link_to "edit your contact details", edit_user_path %><%end%></td>
+			
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td><%= @user.email %></td>
+	</tr>
+	<tr>
+		<td>Mobile</td>
+		<td><%= @user.mobile %></td>
+	</tr>
+	<tr>
+		<td>Twitter</td>
+		<td><%= @user.twitter %></td>
+	</tr>
+</table>
+
+<% current_playerdiv = get_playerdiv()
+if !current_playerdiv.blank? %>
+
+<strong>Current Opponents:</strong>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Mobile</th>
+	</tr>
+			
+<% 
+
+players = User.joins(:playerdivs).where(:playerdivs => { :division_id => current_playerdiv.division_id }).where("users.id != ?", params[:id]) 
+
+players.each do |player| %>
+	<tr>
+		<td><%= player.name %></td>
+		<td><%= mail_to player.email %></td>
+		<td><%= player.mobile %></td>
+	</tr>
+	<% end%>
+	</table>
+	
+<% else %>
+<strong>You have no current opponents</strong>
+<% end %>
+		<p><strong>Recent Results</strong></p>
+<!--		<% unless @user.results.empty? %>
 		        <table class="results" summary="User results">
 		          <%= render @results %>
 		        </table>
 		        <%= will_paginate @results %>
 		      <% end  %>
 
-
+-->
       </h1>
-    </td>
-    <td class="sidebar round">
-		<strong>Name</strong> <%= @user.name %><br />
-		<strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
-		<strong>Wins</strong> 3<br />
-		<strong>Current Division</strong> 	<%= @division_number.number %><br />
-		<strong>Add a result: </strong><br>
-		<% form_for @user do |f| %>
-		<%= @user.name %> <%= select_tag 'user_result', options_for_select([["1", "1"], ["2", "2"], ["3", "3"]]) %> vs </strong><br>
 
+
+		<% if ((current_user.admin?) && (params[:id] == current_user.id.to_s)) %>
+		<p>
+		<h4>Admin Functions</h4>
+		<%= link_to "Edit a result", :controller => 'matches', :action => 'index' %><br />
+		<%= link_to "Edit a league", :controller => 'playerdivs', :action => 'index' %><br />
+		<%= link_to "Edit a player", :controller => 'users', :action => 'index' %><br />
+		</p>
+		<% end %>
+		
+	
+		<strong>Current Division</strong> 	<%= get_playerdiv().id %><br />
+		<% if params[:id] == current_user.id.to_s %><%= link_to "Add a result", :controller => 'matches', :action => 'new' %><% end %><br>
+	
 <!-- Bust out the opponents -->
 
-	<% opponents = playerdiv_users(@current_playerdiv.id,@user.id) %>
- <%= select_tag 'person', options_from_collection_for_select(opponents,'id','name') %><%=  select_tag 'opponent_result', options_for_select([["1", "1"], ["2", "2"], ["3", "3"]]) %>
+<%  #select_tag 'opponent_result',  options_for_select([["1", "1"], ["2", "2"], ["3", "3"]]) %>
 
-<% end %>
+<% #end %>
 
 		 
-    </td>
-  </tr>
-</table>
+

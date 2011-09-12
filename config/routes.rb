@@ -1,5 +1,15 @@
 SampleApp::Application.routes.draw do
 
+  resources :rankings
+
+  resources :blogs
+
+  resources :seasons
+
+  resources :divisions
+
+  resources :playerdivs
+
   resources :results
 
   resources :matches
@@ -27,7 +37,7 @@ SampleApp::Application.routes.draw do
 
   get "pages/help"
   
-  root :to => 'pages#home'
+  root :to => 'blogs#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

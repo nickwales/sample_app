@@ -47,13 +47,40 @@ def playerdiv_users(playerdiv)
       results = User.joins(:playerdivs).where(:playerdivs => {:division_id => playerdiv})
       results.each do |r|
         users[r.name] = r.id
-  #      users << { "r.name", "r.id" }
     end
     return users
   end
-    
+  
+# Get players from current playerdiv
+def other_playerdiv_users(playerdiv,user_id)
+      users = Hash.new
+      results = User.joins(:playerdivs).where(:playerdivs => {:division_id => playerdiv}).where("users.id != ?", user_id)
+      results.each do |r|
+        users[r.name] = r.id
+    end
+    return users
+  end  
+
 # Get current playerdiv by id
 def get_playerdiv()
       playerdiv = Playerdiv.where(:user_id => current_user).last
       return playerdiv
     end
+
+def user_by_id(id)
+    user = User.find(id)
+    return user
+  end
+
+
+def current_season()
+	now = Date.today
+    Season.all.each do |s|
+      if Date.today >= s.start_date && Date.today <= s.end_date
+        return s.id
+	    elsif
+       season = 0
+  	  end
+    end
+  end 
+

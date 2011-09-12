@@ -64,7 +64,7 @@ module PagesHelper
       name = user.name
 
   # Put it all in an associative array
-      l << { :Name => name, :Played => played, :Won => won, :Lost => lost, :Drew => drew, :Points => points}
+      l << { :id => user.id, :Name => name, :Played => played, :Won => won, :Lost => lost, :Drew => drew, :Points => points}
     end
     
   # Sort it by league points
@@ -99,6 +99,28 @@ module PagesHelper
         points = 2
       elsif score_1[:score] == 0 && score_2[:score] == 3
         points = 1
+      elsif score_1[:score] == 2 && score_2[:score] == 0
+          points = 5
+      elsif score_1[:score] == 2 && score_2[:score] == 1
+          points = 5
+      elsif score_1[:score] == 1 && score_2[:score] == 2
+          points = 2
+      elsif score_1[:score] == 0 && score_2[:score] == 2
+          points = 1
+      elsif score_1[:score] == 2 && score_2[:score] == 2
+          points = 4
+      elsif score_1[:score] == 1 && score_2[:score] == 0
+          points = 4
+      elsif score_1[:score] == 0 && score_2[:score] == 1
+            points = 1
+      elsif score_1[:score] == 1 && score_2[:score] == 1
+          points = 3
+      elsif score_1[:score] == 0 && score_2[:score] == 0
+          points = 2
+      elsif score_1[:score] == 3 && score_2[:score] == -1
+          points = 7
+      elsif score_1[:score] == -1 && score_2[:score] == 3
+          points = 0
       end
     elsif score_2[:user_id] == player
       if score_2[:score] == 3 && score_1[:score] == 2
@@ -113,6 +135,28 @@ module PagesHelper
         points = 2
       elsif score_2[:score] == 0 && score_1[:score] == 3
         points = 1
+      elsif score_2[:score] == 2 && score_1[:score] == 0
+          points = 5
+      elsif score_2[:score] == 2 && score_1[:score] == 1
+          points = 5
+      elsif score_2[:score] == 1 && score_1[:score] == 2
+          points = 2
+      elsif score_2[:score] == 0 && score_1[:score] == 2
+          points = 1
+      elsif score_2[:score] == 2 && score_1[:score] == 2
+          points = 4
+      elsif score_2[:score] == 1 && score_1[:score] == 0
+          points = 4
+      elsif score_2[:score] == 0 && score_1[:score] == 1
+            points = 1
+      elsif score_2[:score] == 1 && score_1[:score] == 1
+          points = 3
+      elsif score_2[:score] == 0 && score_1[:score] == 0
+          points = 2
+      elsif score_2[:score] == 3 && score_1[:score] == -1
+          points = 7
+      elsif score_2[:score] == -1 && score_1[:score] == 3
+          points = 0
       end
     end
     return points
