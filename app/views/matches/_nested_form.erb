@@ -48,8 +48,8 @@
 	<% end %>
 <!-- Ranking points for player 2 -->
 	<%= f.fields_for :rankings do |ranking_form| %>
-		<%= ranking_form.label :score %><br />
-		<%= ranking_form.text_field :score %><br />
+		
+		<%= ranking_form.hidden_field :score %><br />
 		<%= ranking_form.hidden_field :user_id, :value => :user_id %>
 		<%= ranking_form.hidden_field :match_id, :value => :match_id %>
 	<% end %>
