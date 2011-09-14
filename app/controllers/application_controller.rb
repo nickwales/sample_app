@@ -10,8 +10,16 @@
     #Create new variables with existing ELO scores. We post this in winner order rather than have to do anything twice.
       win1 = winner.to_i
       los1 = loser.to_i
-      p1 = Elo::Player.new(:rating => Ranking.where(:user_id => winner).last.score)
-      p2 = Elo::Player.new(:rating => Ranking.where(:user_id => loser).last.score)
+      if Ranking.where(:user_id => winner).last.score
+        p1 = Elo::Player.new(:rating => Ranking.where(:user_id => winner).last.score)
+      else
+        p1 = 1000
+      end
+      if Ranking.where(:user_id => loser).last.score
+        p2 = Elo::Player.new(:rating => Ranking.where(:user_id => loser).last.score)
+      else
+        p2 = 1000
+      end
       game = p1.versus(p2)
       game.winner = p1
       p1_rating = p1.rating
