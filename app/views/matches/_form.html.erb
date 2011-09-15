@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-<!-- Get the division_id for current loggin in user -->
+<!-- Get the division_id for current logged in user -->
   	<% current_playerdiv = get_playerdiv 
 	result = Result.joins(:match).where(:results => {:match_id => params[:id]})%>
     <%= f.hidden_field :playerdiv_id, :value => Match.find(params[:id]).playerdiv_id %><br />
-	<% playerdiv_players = playerdiv_users(current_playerdiv.division_id,current_user.id) %>
+	<% playerdiv_players = other_playerdiv_users(current_playerdiv.division_id,current_user.id) %>
 
 	<%= f.fields_for :results do |result_form| %>
 		<%= result_form.label :Player %><br />
