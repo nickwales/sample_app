@@ -78,7 +78,7 @@ def current_season()
     Season.all.each do |s|
       if Date.today >= s.start_date && Date.today <= s.end_date
         return s.id
-	    elsif
+	    else
        season = 0
   	  end
     end
