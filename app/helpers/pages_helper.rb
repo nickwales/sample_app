@@ -13,7 +13,20 @@ module PagesHelper
       @divs << p.id
     end
   end
-
+# Create the rankings table for everyone
+  def show_rankings()
+    players = User.all
+    rankings = Array.new
+    players.each do |r|
+      player << r.id
+      played = Result.where(:user_id => player).count
+      ranking = Ranking.where(:user_id => player).last.id
+      rankings << [player,played,ranking]
+    end
+    return rankings
+  end
+  
+      
 # Create the league table for a single division
   def show_league(division_id,league)
     div_id = division_id[:id]

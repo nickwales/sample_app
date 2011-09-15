@@ -1,0 +1,25 @@
+
+ranking = 
+
+<table class="league">
+		<h3>Rankings</h3>
+		<tr>
+			<th>Name</th>
+			<th>Played</th>
+			<th>Ranking Score</th>
+		</tr>
+
+		<%	l.each do |p| %>
+			<tr>
+				<td><%= link_to p[:Name], :controller => 'users', :action => 'show', :id => p[:id] %></td>
+				<td><%= p[:Played] %></td>
+				<td><%= p[:Won] %></td>
+				<td><%= p[:Lost] %></td>
+				<td><%= p[:Drew] %></td>
+				<td><%= p[:Points] %></td>
+			</tr>
+		<% end %>
+		</table>
+
+
+<% 	end  %>
