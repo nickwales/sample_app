@@ -91,3 +91,12 @@ def current_season()
     end
   end 
 
+def tweet(player1,player2,score)
+  Twitter.configure do |config|
+    config.consumer_key = "1XjVDsxhid6RGC2L87iOw"
+    config.consumer_secret = "3D9GIbIEfiKqSMDzHTunAPJ0Cb3jGMpxTGJ5SBKXcZQ"
+    config.oauth_token = "167934744-nQHj7SI2fmR9kKgp0xPgqxKThzo3b8E5Zm57LtXh"
+    config.oauth_token_secret = "w151Vhz4TQ5cMaCGEeJPZyeHfw13X4PgvIek4UXhzk"
+  end
+    Twitter.update("I'm tweeting with @gem!")
+  end

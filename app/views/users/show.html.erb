@@ -1,9 +1,14 @@
 <table>
 	<tr>
 		<td><%= gravatar_for @user %></td>
-		<td><%= @user.name %> <% if params[:id] == current_user.id.to_s %><%= link_to "edit your contact details", edit_user_path %><%end%></td>
-			
+		<td><%= @user.name %> <% if params[:id] == current_user.id.to_s %> <%= link_to "edit your contact details", edit_user_path %><%end%></td>
 	</tr>
+	<% if params[:id] == current_user.id.to_s %>
+	<tr>
+		<td></td>
+		<td><%= link_to "Add a result", :controller => 'matches', :action => 'new' %></td>			
+	</tr>
+	<% end %>
 	<tr>
 		<td>Email</td>
 		<td><%= @user.email %></td>
@@ -34,7 +39,7 @@ players = User.joins(:playerdivs).where(:playerdivs => { :division_id => current
 
 players.each do |player| %>
 	<tr>
-		<td><%= player.name %></td>
+		<td><%= link_to player.name, :controller => 'users', :action => 'show', :id => player.id %></td>
 		<td><%= mail_to player.email %></td>
 		<td><%= player.mobile %></td>
 	</tr>
@@ -66,8 +71,8 @@ players.each do |player| %>
 		<% end %>
 		
 	
-		<strong>Current Division</strong> 	<%= get_playerdiv().id %><br />
-		<% if params[:id] == current_user.id.to_s %><%= link_to "Add a result", :controller => 'matches', :action => 'new' %><% end %><br>
+
+		
 	
 <!-- Bust out the opponents -->
 

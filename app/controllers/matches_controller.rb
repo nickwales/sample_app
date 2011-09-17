@@ -58,16 +58,6 @@ class MatchesController < ApplicationController
       elo_scores = update_elo_score(params['match']['results_attributes']['1']['user_id'],params['match']['results_attributes']['0']['user_id']) 
       params['match']['rankings_attributes']['1']['score'] = elo_scores.first     
       params['match']['rankings_attributes']['0']['score'] = elo_scores.last
-#      winner_id = ['match']['results_attributes']['0']['user_id']
-#      winner = winner_id.to_i
-#      loser_id = ['match']['results_attributes']['1']['user_id'].to_i
-#      elo_scores = update_elo_score(winner,loser_id)
-#      params['match']['rankings_attributes']['0']['score'] = 1300
-#      params['match']['rankings_attributes']['1']['score'] = 1100
-#    elsif params['match']['results_attributes']['1']['score'] > params['match']['results_attributes']['0']['score']
-#      elo_scores = update_elo_score(['match']['results_attributes']['1']['user_id'],['match']['results_attributes']['0']['user_id'])
-#      params['match']['rankings_attributes']['1']['score'] = 1301
-#      params['match']['rankings_attributes']['0']['score'] = 1101
     end
     
 
@@ -76,9 +66,9 @@ class MatchesController < ApplicationController
     
     respond_to do |format|
      if @match.save
-
- #     format.html { redirect_to(@match, :notice => 'Match was successfully created.') }
-  format.html { redirect_to(@match, :notice => params['match'].inspect) }
+        ResultMailer.result_email(params['match']['rankings_attributes']['0']['user_id'],params['match']['rankings_attributes']['1']['user_id'],params['match']['results_attributes']['0']['score'],params['match']['results_attributes']['1']['score']).deliver
+        format.html { redirect_to(@match, :notice => 'Match was successfully created.') }
+ #       format.html { redirect_to(@match, :notice => params['match'].inspect) }
         format.xml  { render :xml => @match, :status => :created, :location => @match }
       else
         format.html { render :action => "new" }

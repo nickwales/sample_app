@@ -1,10 +1,12 @@
 source 'http://rubygems.org'
 
+gem 'twitter4r'
 gem 'rails', '3.0.9'
 gem 'sqlite3', '1.3.3'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '3.0.pre2'
 gem 'elo'
+gem 'json', '1.5.3'
 
 group :development do
   gem 'rspec-rails', '2.6.1'

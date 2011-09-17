@@ -18,9 +18,10 @@ if seasons == Season.last.id %>
 <% else %>
         <%= link_to "Previous Season", :controller => "pages", :action => "league", :season => previous_season %>
         <%= link_to "Next Season", :controller => "pages", :action => "league", :season => next_season %>
-<% end 
+<% end %> 
 
-
+<br /><br />
+<%
 # Sort them, paginate them. 
 sorted_and_paginated_divisions = divisions.paginate(:page => params[:page], :per_page => 5)
 # Loop through the leagues and tabulate them
