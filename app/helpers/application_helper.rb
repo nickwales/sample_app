@@ -67,6 +67,13 @@ def get_playerdiv()
       return playerdiv
     end
 
+# Get current playerdiv by id
+def get_playerdiv_by_id(id)
+      playerdiv = Playerdiv.where(:user_id => id).last
+      return playerdiv
+    end
+
+
 def user_by_id(id)
     user = User.find(id)
     return user

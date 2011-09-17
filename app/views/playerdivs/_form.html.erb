@@ -13,11 +13,13 @@
 
   <div class="field">
     <%= f.label :division_id %><br />
-    <%= f.text_field :division_id %>
+    <%= f.select :division_id,  options_for_select(Division.find(:all, :conditions => { :season_id => current_season() }).map{ |x| [ x.name, x.id ]}) %>
+
   </div>
   <div class="field">
     <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
+
+	<%= f.select :user_id,  options_for_select(User.find(:all, :order => "name").map{ |x| [ x.name, x.id ]}) %>
   </div>
   <div class="actions">
     <%= f.submit %>

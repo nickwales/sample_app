@@ -30,6 +30,7 @@ module PagesHelper
 # Create the league table for a single division
   def show_league(division_id,league)
     div_id = division_id[:id]
+    @div_name = Division.find(div_id).name
     players = Playerdiv.where(:division_id => division_id)
     player = Array.new
     players.each do |p|

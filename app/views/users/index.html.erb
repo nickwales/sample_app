@@ -16,7 +16,7 @@
 		<td>Delete</td>
 		<% end %>
 	</tr>
-<% @users.each do |u| %>	
+<% User.find(:all, :order => 'name').each do |u| %>	
 
 	<tr>
 		<td><%= link_to u.name, u %></td>

@@ -4,7 +4,7 @@
   <tr>
     <th>Season</th>
     <th>Number</th>
-    <th></th>
+    <th>Name</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,6 +13,7 @@
   <tr>
     <td><%= division.season_id %></td>
     <td><%= division.number %></td>
+    <td><%= division.name %></td>
     <td><%= link_to 'Show', division %></td>
     <td><%= link_to 'Edit', edit_division_path(division) %></td>
     <td><%= link_to 'Destroy', division, :confirm => 'Are you sure?', :method => :delete %></td>

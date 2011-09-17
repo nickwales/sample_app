@@ -7,7 +7,7 @@
   end
   
   def update_elo_score(winner,loser)
-    #Create new variables with existing ELO scores. We post this in winner order rather than have to do anything twice.
+    #Create new variables with existing ELO scores. We post this in winner order rather than have to do everything twice.
       win1 = winner.to_i
       los1 = loser.to_i
       unless Ranking.where(:user_id => winner)

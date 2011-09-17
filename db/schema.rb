@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110908143316) do
+ActiveRecord::Schema.define(:version => 20110916144308) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20110908143316) do
     t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "matches", :force => true do |t|
