@@ -1,12 +1,20 @@
+<% current_playerdiv = get_playerdiv_by_id(params[:id]) %>
+
 <table>
 	<tr>
 		<td><%= gravatar_for @user %></td>
+<<<<<<< HEAD
 		<td><%= @user.name %> <% if params[:id] == current_user.id.to_s %>&nbsp; <%= link_to "edit your details", edit_user_path %><% end %></td>
+=======
+		<td><%= @user.name %> <% if params[:id] == current_user.id.to_s %> <%= link_to "edit your contact details", edit_user_path %><% end %></td>
+>>>>>>> 5ab0fd4289109b242826adad3b47d5c1456069b6
 	</tr>
 	<% if params[:id] == current_user.id.to_s %>
 	<tr>
 		<td></td>
-		<td><%= link_to "Add a result", :controller => 'matches', :action => 'new' %></td>			
+		
+		<td><%= link_to "Add a result", :controller => 'matches', :action => 'new' %></td>	
+				
 	</tr>
 	<% end %>
 	<tr>
@@ -28,7 +36,11 @@
 	</tr>
 </table>
 
+<<<<<<< HEAD
 <% current_playerdiv = get_playerdiv_by_id(params[:id]) %>
+=======
+
+>>>>>>> 5ab0fd4289109b242826adad3b47d5c1456069b6
 
 <% if !current_playerdiv.blank? %>
 
@@ -41,6 +53,10 @@
 	</tr>
 			
 <% players = User.joins(:playerdivs).where(:playerdivs => { :division_id => current_playerdiv.last.division_id }).where("users.id != ?", params[:id]) 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5ab0fd4289109b242826adad3b47d5c1456069b6
 
 players.each do |player| %>
 	<tr>
@@ -51,8 +67,7 @@ players.each do |player| %>
 <% end %>
 	</table>
 	
-<% else %>
-<strong>You have no current opponents</strong>
+
 <% end %>
 		<p><strong>Recent Results</strong></p>
 		<% 	results = show_users_matches(5) %>
@@ -83,5 +98,7 @@ players.each do |player| %>
 		<%= link_to "Edit a result", :controller => 'matches', :action => 'index' %><br />
 		<%= link_to "Edit a league", :controller => 'playerdivs', :action => 'index' %><br />
 		<%= link_to "Edit a player", :controller => 'users', :action => 'index' %><br />
+		<%= link_to "Create a new season", :controller => 'seasons', :action => 'index' %><br />
+		<%= link_to "Create a new division", :controller => 'divisions', :action => 'index' %><br />
 		</p>
 		<% end %>
