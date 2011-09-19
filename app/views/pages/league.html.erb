@@ -43,7 +43,7 @@ l = show_league(l,1) %>
 
 		<%	l.each do |p| %>
 			<tr>
-				<td><%= link_to p[:Name], :controller => 'users', :action => 'show', :id => p[:id] %></td>
+				<td><% if signed_in? %><%= link_to p[:Name], :controller => 'users', :action => 'show', :id => p[:id] %><% else %><%= p[:Name] %><% end %></td>
 				<td><%= p[:Played] %></td>
 				<td><%= p[:Won] %></td>
 				<td><%= p[:Lost] %></td>

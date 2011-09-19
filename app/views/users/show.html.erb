@@ -1,7 +1,7 @@
 <table>
 	<tr>
 		<td><%= gravatar_for @user %></td>
-		<td><%= @user.name %> <% if params[:id] == current_user.id.to_s %> <%= link_to "edit your contact details", edit_user_path %><%end%></td>
+		<td><%= @user.name %> <% if params[:id] == current_user.id.to_s %> <%= link_to "edit your contact details", edit_user_path %><% end %></td>
 	</tr>
 	<% if params[:id] == current_user.id.to_s %>
 	<tr>
@@ -50,14 +50,26 @@ players.each do |player| %>
 <strong>You have no current opponents</strong>
 <% end %>
 		<p><strong>Recent Results</strong></p>
-<!--		<% unless @user.results.empty? %>
-		        <table class="results" summary="User results">
-		          <%= render @results %>
-		        </table>
-		        <%= will_paginate @results %>
-		      <% end  %>
+		<% 
+				results = show_users_matches(5)%>
+		
+		        <table width=100px summary="User results">
+			
+				
+			<% results.each do |r| %>			
+				<tr>
+					<td><%= User.find(r[0][:user_id]).name %>
+					<td><%= r[0][:score]%>
+					<td><%= r[1][:score]%>
+					<td><%= User.find(r[1][:user_id]).name %>
+		        </tr>
+				
+		<% end %>
+		</table>
 
--->
+		      
+
+
       </h1>
 
 

@@ -11,6 +11,13 @@ def user_by_id(id)
   return user
 end
   
-
+def show_users_matches(number_of_matches)
+  @results = Array.new
+  r = Result.where(:user_id => params[:id]).last(number_of_matches)
+  r.each do |m|
+    @results << Result.where(:match_id => m[:match_id])
+  end
+  return @results
+end
 
 end

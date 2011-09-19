@@ -29,4 +29,11 @@
       return elo_scores
     end
 
+
+
+      def require_login
+        unless current_user
+          redirect_to root_path
+        end
+      end
 end
