@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate, :only => [:index, :edit, :update]
   before_filter :correct_user, :only => [:edit, :update]
+  before_filter :require_login
   
   def index
     @title = "All Users"
@@ -70,6 +71,8 @@ class UsersController < ApplicationController
   def get_last_playerdiv
     @current_playerdiv = Playerdiv.where(:user_id => params[:id]).last
   end
+  
+
 end
 
 
