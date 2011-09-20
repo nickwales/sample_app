@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><%= @title %></title>
     <%= csrf_meta_tag %>
     <%= render 'layouts/stylesheets' %>
 	<%= javascript_include_tag :defaults %>
@@ -12,6 +12,7 @@
 			<ul id="navigation">
 				<li><%= link_to "Home", root_path %></li>
 				<li><%= link_to "Leagues", :controller => "pages", :action => "league" %></li>
+				<li><%= link_to "Ranking", :controller => "pages", :action => "rankings" %></li>
 				<li><%= link_to "Info", :controller => "pages", :action => "about" %></li>
 				<li><%= link_to "Contact", :controller => "pages", :action => "contact" %></li>
 				<% if signed_in? %>

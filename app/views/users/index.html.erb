@@ -16,7 +16,7 @@
 		<td>Delete</td>
 		<% end %>
 	</tr>
-<% User.find(:all, :order => 'name').each do |u| %>	
+<% User.find(:all, :order => 'name').paginate(:page => params[:page]).each do |u| %>	
 
 	<tr>
 		<td><%= link_to u.name, u %></td>

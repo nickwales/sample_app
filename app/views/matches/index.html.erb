@@ -10,7 +10,7 @@
 
 
 <%
-m = Match.all
+m = Match.all.paginate(:page => params[:page])
 m.each do |match|
 	j = match.id
 	r = Result.where(:match_id => j)
