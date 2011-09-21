@@ -1,10 +1,35 @@
 SampleApp::Application.routes.draw do
 
+  resources :rankings
+
+  resources :blogs
+
+  resources :seasons
+
+  resources :divisions
+
+  resources :playerdivs
+
+  resources :results
+
+  resources :matches
+
+  get "sessions/new"
+
   resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
+ # resources :leagues
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
-  match '/signup',    :to => 'users#new'
+  match '/signup',  :to => 'users#new'
+  match '/signin',	:to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
+  match '/league',  :to => 'pages#league'
+  match '/results', :to => 'pages#results'
+  match '/ranking', :to => 'pages#rankings'
+  match '/league/gold',  :to => 'pages#league?page=2'
+  
   get "pages/home"
 
   get "pages/contact"
@@ -13,7 +38,7 @@ SampleApp::Application.routes.draw do
 
   get "pages/help"
   
-  root :to => 'pages#home'
+  root :to => 'blogs#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
