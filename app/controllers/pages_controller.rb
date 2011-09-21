@@ -27,7 +27,10 @@ class PagesController < ApplicationController
     @players.each do |p|
       @player << p.user_id
     end
-    
+  
+  def rankings
+      @title = "Rankings"
+    end
 
 #    l = Array.new
 #    for i in @players
