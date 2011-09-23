@@ -69,7 +69,10 @@ def get_playerdiv()
 
 # Get current playerdiv by id
 def get_playerdiv_by_id(id)
-      playerdiv = Playerdiv.where(:user_id => id).last
+      current_season = current_season()
+      
+      playerdiv = Playerdiv.joins(:division).where(:divisions => {:season_id => current_season }).where(:playerdivs => {:user_id => id})
+#      playerdiv = Playerdiv.where(:user_id => id).last
       return playerdiv
     end
 

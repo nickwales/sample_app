@@ -2,29 +2,20 @@ source 'http://rubygems.org'
 
 gem 'rack-cache', '1.0.3'
 gem 'fastercsv' # Only required on Ruby 1.8 and below
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+#gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 # gem 'twitter4r'
 #gem 'rails', '3.0.9'
 gem 'rails', '3.1.0'
-gem 'sqlite3', '1.3.3'
+gem 'sqlite3'
 gem 'gravatar_image_tag', '1.0.0.pre2'
-<<<<<<< HEAD
 gem 'elo'
-gem 'mysql2', '0.2.13'
-
-group :development do
-  gem 'rspec-rails', '2.6.1'
-#  gem 'annotate-models'
-=======
 gem 'will_paginate', '3.0.pre2'
-gem 'elo'
-gem 'json', '1.5.3'
 
 group :development do
 #  gem 'rspec-rails', '2.6.1'
 #  gem 'annotate-models', '1.0.4'
 #  gem 'faker', '0.3.1'
->>>>>>> squash-league
+
 end
 
 group :test do
@@ -33,6 +24,9 @@ group :test do
 #  gem 'factory_girl_rails', '1.0'
 end
 
+group :production do
+   gem 'mysql2', '0.2.13'
+end
 
 #gem 'rails', '3.0.9'
 
