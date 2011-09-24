@@ -1,7 +1,7 @@
 <table>
 	<tr>
 		<td><%= gravatar_for @user %></td>
-		<td><%= @user.name %> <% if params[:id] == current_user.id.to_s %> <%= link_to "edit your contact details", edit_user_path %><% end %></td>
+		<td><%= @user.name %> <% if params[:id] == current_user.id.to_s %> <%= link_to "edit your cunt details", edit_user_path %><% end %></td>
 	</tr>
 	<% if params[:id] == current_user.id.to_s %>
 	<tr>
@@ -23,7 +23,9 @@
 	</tr>
 </table>
 
-<% current_playerdiv = get_playerdiv_by_id(params[:id])
+<% current_playerdiv = get_playerdiv_by_id(params[:id]) %>
+Bastard
+<%=  current_playerdiv.inspect %>
 if !current_playerdiv.blank? %>
 
 <strong>Current Opponents:</strong>
@@ -53,8 +55,13 @@ players.each do |player| %>
 		<% 
 				results = show_users_matches(5)%>
 		
-		        <table width=100px summary="User results">
-			
+		        <table summary="User results">
+				<tr>
+					<td>P1</td>
+					<td>Score</td>
+					<td>Score</td>
+					<td>P2</td>
+				</tr>
 				
 			<% results.each do |r| %>			
 				<tr>

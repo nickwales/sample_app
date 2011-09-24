@@ -1,7 +1,7 @@
-
 body {
   background: #98BDC6;
 }
+
 .toolbar {
 	height: 25px;
 	width: 100%;
@@ -295,6 +295,10 @@ table.league td {
 	align: center;
 }
 
+league a {
+	
+}
+
 h1.result {
   margin-bottom: 0.3em;
 }
@@ -435,8 +439,8 @@ table.results_box th {
 table.results_box td {
 	border-right: 1px solid white;
 	border-bottom: 1px solid white;
-
 	padding: 2px;
 	background-color: white;
 	-moz-border-radius: ;
 }
+
