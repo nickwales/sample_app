@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:index, :edit, :update]
-  before_filter :correct_user, :only => [:edit, :update]
-  before_filter :require_login
+#  before_filter :authenticate, :only => [:index, :edit, :update]
+#  before_filter :correct_user, :only => [:edit, :update]
+#  before_filter :require_login
   
   def index
     @title = "All Users"
@@ -54,6 +54,7 @@ class UsersController < ApplicationController
   
   def edit
     @title = "Edit User"
+    @user = User.find(params[:id])
   end
   
   private

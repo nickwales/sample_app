@@ -3,30 +3,34 @@ body {
 }
 
 .toolbar {
-	height: 25px;
+	height: 55px;
 	width: 100%;
 	margin-left: 0px;
 	margin-top: 0px;
+	margin-bottom: 10px;
 	background: #000000;
 	color: #D3D3D3;
-	padding-top: 5px;
-	padding-left: 0px;
+	padding: 0px;
 	font-face: 'Arial';
 	font-size: 13px;
-	margin-bottom: 30px;
 }
 
-#navigation {
+.toolbar_left {
+  float: left;
+  margin-left:25px;
+  margin-top:13px;
+}
+.toolbar_right {
+  float: right;
+  margin-right:0px;
+  margin-top:15px;
+}
+
+#navigation ul{
+	display: inline;
 	list-style: none;  
 	background: #black;  
 	overflow: hidden;  
- 
-}
-
-#navigation {  
-    list-style: none;  
-    background: #black;  
-    overflow: hidden;  
  
 }
 
@@ -37,7 +41,7 @@ body {
     padding: 0 9px 0 9px;  
     border-right: solid 1px #5E5E5E;  
     font-family: Arial, Helvetica, sans-serif;  
-    font-size: 12px;  
+    font-size: 12px; 
  
 }
 
@@ -61,30 +65,44 @@ header img {
   padding-top: 0px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-logo {
+.logo {
 	width: 350px;
+	height: 80px;
+	background-image:url('/images/wimbledonsquash_logo.png');
+	background-repeat:no-repeat;
 }
 
 .content_border {
 	float: left;
 	width:620px;
-	padding: 9px;
+	padding-left: 9px;
+	padding-right: 15px;
+	padding-bottom: 9px;
+	padding-top: 9px;	
 	background: #6AA1AF;
-	border: solid 1px #377A8B;
+	border-left: solid 1px #377A8B;
+	border-right: solid 1px #377A8B;
+	border-bottom: solid 1px #377A8B;
+	border-top: solid 1px #377A8B;
 	overflow:auto;
 	margin-right: 60px;
-
 }	
+
 .content {
 	width: 600px;
 	float: left;
 	margin-left: 0px;
 	padding: 9px;
+	padding-right: 14px;
 	background: white;
-	border: solid 1px #377A8B;
-
+	border-left: solid 1px #377A8B;
+	border-right: solid 1px #377A8B;
+	border-bottom: solid 1px #377A8B;
+	border-top: solid 1px #377A8B;
 }
 
 .sidebar {
@@ -150,49 +168,6 @@ blog_contents{
 	margin-left: 10px;
 	font-face: Arial;
 	font-size: 15px;
-}
-
-
-nav {
-  background-color: black;
-  padding: 0 0.7em;
-  white-space: nowrap;
-}
-
-nav ul {
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 0.2em 0;
-}
-
-nav ul li a {
-  padding: 0 5px;
-  font-weight: normal;
-  color: #D3D3D3;
-  text-decoration: none;
-}
-
-nav ul li a:visited {
-  color: #D3D3D3;
-  text-decoration: none;
-}
-
-nav ul li a:hover {
-  text-decoration: underline;
-}
-
-
-
-.left {
-  float: left;
-}
-.right {
-  float: right;
 }
 
 footer {
@@ -283,7 +258,7 @@ ul.users {
 }
 
 table.league {
-	width: 400px;
+	width: 600px;
 }
 table.league th {
 	color: black;
@@ -444,3 +419,99 @@ table.results_box td {
 	-moz-border-radius: ;
 }
 
+mainnav {
+  background-color: black;
+  padding: 0 0.7em;
+  white-space: nowrap;
+}
+
+mainnav ul {
+  margin: 0;
+  padding: 0;
+}
+
+mainnav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+mainnav ul li a {
+  padding: 0 5px;
+  font-weight: normal;
+  color: #D3D3D3;
+  text-decoration: none;
+}
+
+mainnav ul li a:visited {
+  color: #D3D3D3;
+  text-decoration: none;
+}
+
+mainnav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Droplicous code, change to your liking */
+#nav ul.licious{
+	list-style: none; 
+	text-align:left;
+	width:80px;
+	font-size:.8em;
+	background:#444;
+	margin:0;
+	padding:0;
+	position:absolute;
+	left:0px;
+	top:28px;
+	opacity:.97;
+	filter:alpha(opacity=97);
+}
+
+/* ie bs */
+html>body #nav ul.licious{
+	position:absolute;	
+	top:18px;
+}
+#nav ul.licious a:hover{
+	
+	position:relative;
+	color:#0A82D0;
+	background:none;
+}
+#nav ul.licious a{
+	position:relative;
+	z-index:999;
+	font-weight:normal;
+	margin:0;
+	padding:5px 0 5px 10px;
+	background:none;
+	color:white;
+	display:block;
+}
+#nav li a:hover{
+	color:#0A82D0;
+}
+#nav li a{
+	font-weight:normal;
+	text-decoration:none;
+	color:#D3D3D3;
+	padding:10px 10px 0 10px;
+	background:black;
+	text-shadow:none;
+}
+#nav{
+	position:relative;
+	width:600px;
+	list-style:none;
+	margin:0 auto;
+	padding:0;
+	list-style:none;
+	font-size:1em;
+}
+#nav li{
+ 	position:relative;
+ 	display:inline;
+	margin:0;
+	padding:0;
+}

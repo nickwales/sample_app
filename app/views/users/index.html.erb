@@ -1,15 +1,12 @@
 <h1>All Users</h1>
 
 <%= will_paginate %>
-
-
-
 <table class="league">
 	<tr>
-		<td>Name</td>
-		<td>Email</td>
-		<td>Mobile</td>
-		<td>@twitter</td>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Mobile</th>
+		<th>@twitter</th>
 
 		<% if current_user.admin? %>
 		<td>Edit</td>
@@ -22,8 +19,7 @@
 		<td><%= link_to u.name, u %></td>
 		<td><%= mail_to u.email %></td>
 		<td><%= u.mobile %></td>
-		<td><%= u.twitter %></td>
-
+		<%= u.twitter %></td>
 		<% if current_user.admin? %>
 	    <td><%= link_to 'Edit', edit_user_path(u) %></td>
 	    <td><%= link_to 'Destroy', u, :confirm => 'Are you sure?', :method => :delete %></td>
