@@ -15,10 +15,16 @@ test:
   pool: 5
   timeout: 5000
 
+#production:
+#  adapter: mysql2
+#  database: wimbledonsquash
+#  user: root
+#  password: 
+#  charset: utf8
+#  collation: utf8_bin
+
 production:
-  adapter: mysql2
-  database: wimbledonsquash
-  user: root
-  password: 
-  charset: utf8
-  collation: utf8_bin
+    adapter: sqlite3
+    database: db/development-bak.sqlite3
+    pool: 5
+    timeout: 5000
