@@ -8,7 +8,7 @@ body {
 	margin-left: 0px;
 	margin-top: 0px;
 	margin-bottom: 10px;
-	background: #000000;
+	background: #222;
 	color: #D3D3D3;
 	padding: 0px;
 	font-face: 'Arial';
@@ -16,15 +16,21 @@ body {
 }
 
 .toolbar_left {
+  position:absolute;
   float: left;
   margin-left:25px;
   margin-top:13px;
+  z-index:1000;
 }
 .toolbar_right {
+  position:absolute;
+  z-index: 999;
   float: right;
   margin-right:0px;
   margin-top:15px;
   text-align:right;
+  right:0px;
+
 }
 
 #navigation ul{
@@ -498,12 +504,12 @@ html>body #nav ul.licious{
 	text-decoration:none;
 	color:#D3D3D3;
 	padding:10px 10px 0 10px;
-	background:black;
+	background:#222;
 	text-shadow:none;
 }
 #nav{
 	position:relative;
-	width:600px;
+	width:700px;
 	list-style:none;
 	margin:0 auto;
 	padding:0;

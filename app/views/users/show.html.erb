@@ -3,7 +3,7 @@
 <table>
 	<tr>
 		<td><%= gravatar_for @user %></td>
-		<td><%= @user.name %> <% if params[:id] == current_user.id.to_s %>&nbsp; <%= link_to "edit your details", edit_user_path %><% end %></td>
+		<td><%= @user.name %> <% if params[:id] == current_user.id.to_s %> &nbsp; <%= link_to "edit your details", edit_user_path %><% end %></td>
 	</tr>
 	<% if params[:id] == current_user.id.to_s %>
 	<tr>
@@ -45,14 +45,6 @@
 	</tr>
 			
 <% players = User.joins(:playerdivs).where(:playerdivs => { :division_id => current_playerdiv.last.division_id }).where("users.id != ?", params[:id]) 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 5ab0fd4289109b242826adad3b47d5c1456069b6
-=======
-
->>>>>>> 5ab0fd4289109b242826adad3b47d5c1456069b6
 
 players.each do |player| %>
 	<tr>
