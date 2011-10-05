@@ -67,7 +67,7 @@ header img {
 
 
 .container {
-  width: 1110px;
+  width: 1210px;
   background: #98BDC6;
   padding-top: 0px;
   margin-left: auto;
@@ -85,6 +85,7 @@ header img {
 
 .content_border {
 	float: left;
+
 	width:620px;
 	padding-left: 9px;
 	padding-right: 15px;
@@ -100,7 +101,7 @@ header img {
 }	
 
 .content {
-	width: 600px;
+	width: 700px;
 	float: left;
 	margin-left: 0px;
 	padding: 9px;

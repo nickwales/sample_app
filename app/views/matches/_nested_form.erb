@@ -24,9 +24,11 @@
 	<!-- Get the user -->
 	<%= result_form.label current_user.name %>&nbsp;
 	<%= # result_form.text_field :user_id 
+
 		result_form.hidden_field :user_id, :value => current_user.id %>
 		
 		<%= result_form.select :score, options_for_select([["Game Score", "0"], ["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"],["W/O","-1"]]) %><br />
+
 		<%= result_form.hidden_field :active, :value => 1 %>
 	<% end %>
 	<!-- Rankings for player1 -->
@@ -42,7 +44,9 @@
     	<%= #result_form.select :user_id, options_for_select @playerdiv_players
  result_form.select :user_id, options_for_select(User.joins(:playerdivs).where(:playerdivs => { :division_id => current_playerdiv.division_id }).where("users.id != ?", current_user.id).map{ |x| [ x.name, x.id ]}) %>
 	<!-- Get the score -->
+
 		<%= result_form.select :score, options_for_select([["Game Score", "0"], ["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"],["W/O","-1"]]) %><br />
+
 		<%= result_form.hidden_field :active, :value => 1 %>
 	<% end %>
 <!-- Ranking points for player 2 -->

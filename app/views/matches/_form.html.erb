@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
 <!-- Get the division_id for current logged in user -->
   	<% current_playerdiv = get_playerdiv 
@@ -24,7 +23,7 @@
 		result_form.select :user_id, options_for_select(playerdiv_players, :selected => result[0]["user_id"]) %><br />
 	<!-- Get the score -->
 		<%= result_form.label :score %><br />
-		<%= result_form.select :score, options_for_select([["1", "1"], ["2", "2"], ["3", "3"]], :selected => result[0]["score"]) %><br />
+		<%= result_form.select :score, options_for_select([["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"]], :selected => result[0]["score"]) %><br />
 		<%= result_form.hidden_field :active, :value => 1 %>
 		
 		<%= result_form.label :Player %><br />
@@ -32,7 +31,7 @@
 		result_form.select :user_id, options_for_select(playerdiv_players, :selected => result[1]["user_id"]) %><br />
 	<!-- Get the score -->
 		<%= result_form.label :score %><br />
-		<%= result_form.select :score, options_for_select([["1", "1"], ["2", "2"], ["3", "3"]], :selected => result[1]["score"]) %><br />
+		<%= result_form.select :score, options_for_select([["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"]], :selected => result[1]["score"]) %><br />
 		<%= result_form.hidden_field :active, :value => 1 %>
 		
 	<% end %>
