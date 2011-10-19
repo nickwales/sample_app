@@ -29,7 +29,7 @@
 					<li><%= link_to "Info", :controller => "pages", :action => "about" %></li>
 					<li><%= link_to "Contact", :controller => "pages", :action => "contact" %></li>
 					<% if signed_in? %>
-						<li><%= link_to "Users", users_path %></li>
+						<li><%= link_to "Players", users_path %></li>
 						<li><%= link_to current_user.email, current_user %></li>
 						<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
 					<% else %>
