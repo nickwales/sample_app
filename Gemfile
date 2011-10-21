@@ -1,16 +1,11 @@
 source 'http://rubygems.org'
 
 
-#gem 'rack-cache', '1.0.3'
-#gem 'fastercsv' # Only required on Ruby 1.8 and below
-
 gem 'twitter'
-gem 'rack-cache', '1.0.3'
-gem 'fastercsv' # Only required on Ruby 1.8 and below
 #gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 # gem 'twitter4r'
-gem 'rails', '3.0.9'
-#gem 'rails', '3.1.0'
+#gem 'rails', '3.0.9'
+gem 'rails', '3.1.0'
 gem 'sqlite3'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'elo'

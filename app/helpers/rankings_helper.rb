@@ -15,4 +15,9 @@ module RankingsHelper
     return high_score
   end
   
+  def games_won(id)
+    games_won = Result.where(:user_id => id).where(:result => 3).count
+    return games_won
+  end
+    
 end
