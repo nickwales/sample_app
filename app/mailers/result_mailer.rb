@@ -2,10 +2,8 @@ class ResultMailer < ActionMailer::Base
   default :from => "results@tomjohnleague.co.uk"
   
   def result_email(player1,player2,player1_score,player2_score)
-#    player1_email = User.find(player1).email
-#    player2_email = User.find(player2).email
-    player1_email = "nwales@homeaway.com"
-    player2_email = "nick@nickwales.co.uk"
+    player1_email = User.find(player1).email
+    player2_email = User.find(player2).email
 
     if player1_score > player2_score 
       @result = "true"
@@ -22,6 +20,6 @@ class ResultMailer < ActionMailer::Base
     else
       @result = "false"
     end
-      mail(:to => [player1_email,player2_email,"nick@nickwales.co.uk"], :subject => "Squash Result")
+      mail(:to => [player1_email,player2_email,"results@tomjohnleague.co.uk"], :subject => "Squash Result")
     end
 end

@@ -4,7 +4,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Thank you for entering a result, </h1>
+    <h3>Thank you for entering a result, </h3>
     <% if @result == "true" %>
 	<p>
       <%= @winner %> has beaten <%= @loser %> by <%= @winner_score%> games to <%= @loser_score %>
@@ -14,6 +14,7 @@
 		It was a draw!
     </p>
 	<% end %>
-        <p>Thanks for playing and have a great day!</p>
+        <p>Check your new league position <a href="http://squash.wimbledonclub.co.uk/league">here</a></p>
+		<p>Issues with this result? Simply reply to this email with your concern.</p>
   </body>
 </html>
