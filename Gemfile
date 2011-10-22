@@ -1,7 +1,14 @@
 source 'http://rubygems.org'
 
 
-gem 'twitter'
+
+#gem 'twitter'
+
+#gem 'faraday', '0.7.5'
+#gem 'twitter'
+#gem 'rack-cache', '1.0.3'
+#gem 'fastercsv' # Only required on Ruby 1.8 and below
+
 #gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 # gem 'twitter4r'
 #gem 'rails', '3.0.9'
