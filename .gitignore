@@ -7,3 +7,4 @@ tmp/
 *sqlite3
 *.log
 .DS_Store
+Gemfile.lock
