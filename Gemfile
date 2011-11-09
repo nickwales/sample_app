@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 
 
-#gem 'twitter'
+gem 'twitter'
 
 #gem 'faraday', '0.7.5'
 #gem 'twitter'
