@@ -94,12 +94,21 @@ def current_season()
     end
   end 
 
-def tweet(player1,player2,score)
-  Twitter.configure do |config|
-    config.consumer_key = "1XjVDsxhid6RGC2L87iOw"
-    config.consumer_secret = "3D9GIbIEfiKqSMDzHTunAPJ0Cb3jGMpxTGJ5SBKXcZQ"
-    config.oauth_token = "167934744-nQHj7SI2fmR9kKgp0xPgqxKThzo3b8E5Zm57LtXh"
-    config.oauth_token_secret = "w151Vhz4TQ5cMaCGEeJPZyeHfw13X4PgvIek4UXhzk"
-  end
-    Twitter.update("I'm tweeting with @gem!")
-  end
+  def twitter_auth()
+     Twitter.configure do |config|
+       config.consumer_key = "1XjVDsxhid6RGC2L87iOw"
+       config.consumer_secret = "3D9GIbIEfiKqSMDzHTunAPJ0Cb3jGMpxTGJ5SBKXcZQ"
+       config.oauth_token = "167934744-nQHj7SI2fmR9kKgp0xPgqxKThzo3b8E5Zm57LtXh"
+       config.oauth_token_secret = "w151Vhz4TQ5cMaCGEeJPZyeHfw13X4PgvIek4UXhzk"
+     end
+   end
+   def tweet_result(player1, player1_score, player2, player2_score)
+     twitter_auth()
+     # Create the tweet
+
+     tweet = ["Result just in, ", player1, " ", player1_score, " - ", player2_score, " ",player2].join("")
+     # Initialize your Twitter client
+     client = Twitter::Client.new
+     # Post a status update
+     client.update(tweet)
+   end

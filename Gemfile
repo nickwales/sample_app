@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 
 
-#gem 'twitter'
+gem 'twitter'
 
 #gem 'faraday', '0.7.5'
 #gem 'twitter'
@@ -12,7 +12,7 @@ source 'http://rubygems.org'
 #gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 # gem 'twitter4r'
 #gem 'rails', '3.0.9'
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.1'
 gem 'sqlite3'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'elo'
@@ -32,7 +32,7 @@ group :test do
 end
 
 group :production do
-   gem 'mysql2', '0.2.13'
+#   gem 'mysql2', '0.2.13'
 end
 
 #gem 'rails', '3.0.9'

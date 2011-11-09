@@ -76,8 +76,9 @@
 <!-- SideBar-->
 	<div class="sidebar">
 		<!-- Latest results from the database -->
-		<h4>Latest Results</h4>
+
 		<div class="patch round">
+		Latest Results<br>
 		<table class="results_box">
 		<%
 		m = Match.all.last(5)
@@ -93,22 +94,33 @@
 		<% end %>
 		</table>
 		</div>
-		<h4>Team Matches</h4>
+
 		
 		<div class="patch">
-
+		Team Matches<br>
 <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=200&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=nickwales.co.uk_fflcvb8r0ojnnkfhoi8h1u2qfo%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FLondon" style=" border-width:0 " width="300" height="200" frameborder="0" scrolling="no"></iframe>
 
 
 		</div>
-		
-		<h4>Links</h4>
 		<div class="patch">
+		Latest Tweets @wimbledonsquash<br>
+		<% search = Twitter::Search.new 
+		search.to("wimbledonsquash").per_page(5).each do |r|
+		%>
+		
+		<b><%=	"#{r.from_user}:" %></b> <%= "#{r.text}" %>
+		<% end 
+		search.clear%>
+		</div>
+
+		<div class="patch">
+		Links<br>
 		<a href="http://bookings.wimbledonclub.co.uk/Web/Login.aspx">Book a court</a><br />
 		<a href="http://county.leaguemaster.co.uk/">Surrey Cup</a><br />
 		<a href="http://www.surreysra.co.uk/">Surrey SRA</a><br />
-		<a href="http://www.squashsite.co.uk/">Squashsite<br />
+		<a href="http://www.squashsite.co.uk/">Squashsite</a><br />
 		</div>
+		
 	</div>
 
     </div>

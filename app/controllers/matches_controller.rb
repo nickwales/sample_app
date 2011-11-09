@@ -48,7 +48,13 @@ class MatchesController < ApplicationController
     
     #Fix users 2s elo user_id, easypeasy.
     params['match']['rankings_attributes']['1']['user_id'] = params['match']['results_attributes']['1']['user_id']
+    player1 = params['match']['results_attributes']['0']['user_id']
+    player2 = params['match']['results_attributes']['1']['user_id']
+    player1_score = params['match']['results_attributes']['0']['score']
+    player2_score = params['match']['results_attributes']['1']['score']
 
+
+    
     #Add new elo scores 
     if params['match']['results_attributes']['0']['score'] > params['match']['results_attributes']['1']['score']
       elo_scores = update_elo_score(params['match']['results_attributes']['0']['user_id'],params['match']['results_attributes']['1']['user_id']) 
@@ -63,13 +69,30 @@ class MatchesController < ApplicationController
 
     @match = Match.new(params[:match])
     
+    player1_info = User.find(player1)
+    if player1_info.twitter.blank?
+      player1_name = player1_info.name
+    else 
+      player1_name = ["@",player1_info.twitter].join("")
+    end
+
+    player2_info = User.find(player2)
+    if player2_info.twitter.blank?
+      player2_name = player2_info.name
+    else 
+      player2_name = ["@",player2_info.twitter].join("")
+    end
+
+      
+    tweet_result(player1_name,player1_score,player2_name,player2_score)
     
     respond_to do |format|
      if @match.save
-        ResultMailer.result_email(params['match']['rankings_attributes']['0']['user_id'],params['match']['rankings_attributes']['1']['user_id'],params['match']['results_attributes']['0']['score'],params['match']['results_attributes']['1']['score']).deliver
+       # ResultMailer.result_email(params['match']['rankings_attributes']['0']['user_id'],params['match']['rankings_attributes']['1']['user_id'],params['match']['results_attributes']['0']['score'],params['match']['results_attributes']['1']['score']).deliver
         format.html { redirect_to(@match, :notice => 'Match was successfully created.') }
  #       format.html { redirect_to(@match, :notice => params['match'].inspect) }
         format.xml  { render :xml => @match, :status => :created, :location => @match }
+        
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @match.errors, :status => :unprocessable_entity }
